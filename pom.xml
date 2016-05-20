@@ -4,9 +4,9 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.telefonica</groupId>
-	<artifactId>pwd-mgmt-web-service</artifactId>
+	<artifactId>send-email-service</artifactId>
 	<version>0.1.0</version>
-	<packaging>jar</packaging>
+	<packaging>war</packaging>
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>
@@ -24,16 +24,19 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-ws</artifactId>
 		</dependency>
+		
 		<dependency>
 			<groupId>wsdl4j</groupId>
 			<artifactId>wsdl4j</artifactId>
-		</dependency>
+		</dependency>		
 		<!-- end::springws[] -->
+		
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+		
 		<!-- RabbitMQ Dependency -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -58,12 +61,20 @@
 			<artifactId>sqljdbc4</artifactId>
 			<version>4.0</version>
 		</dependency>
+		
 		<!-- http://mvnrepository.com/artifact/javax.mail/mail -->
 		<dependency>
    			<groupId>javax.mail</groupId>
     		<artifactId>mail</artifactId>
   			<version>1.4</version>
-		</dependency>	
+		</dependency>
+		
+		<!-- To build a war file that is both executable and deployable into an external container --> 
+		<dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-tomcat</artifactId>
+            <scope>provided</scope>
+        </dependency>	
 	</dependencies>
 
 	<build>

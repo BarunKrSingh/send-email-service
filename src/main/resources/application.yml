@@ -5,16 +5,13 @@ rabbit:
   queueName: Inbox-Queue
   exchangeName: Telefonica-SendEmail
    
-ldap:
-  initialContextFactory: com.sun.jndi.ldap.LdapCtxFactory
-  providerUrl: ldap://10.64.161.38:10389/o=SIUX
-  securityPrincipal: uid=admin,ou=system
-  securityCredentials: secret
-  ouName: ARPV
-
-database:
-  username: rpadm
-  password: Pa$$w0rd
-  driverClass: com.microsoft.sqlserver.jdbc.SQLServerDriver
-  url: jdbc:sqlserver://10.64.161.33:1433;database=RP	
-  sqlString: select value from VInternalConfiguration where [RP].[dbo].[VInternalConfiguration].[Key]='emc.idp.user.auth.rpv.max.attempts'
+mail:  
+  username: barun.singh@emc.com
+  password:   
+  host: 10.64.160.96
+  protocol: smtp
+  port: 25
+  auth: false
+  starttls: true  
+  
+  
