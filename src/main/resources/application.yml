@@ -1,5 +1,5 @@
 server:
-  port: 9091
+  port: 80
   
 rabbit:
   queueName: Inbox-Queue
