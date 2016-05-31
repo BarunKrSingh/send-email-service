@@ -8,8 +8,7 @@ public class EmailContext {
 	
 	private String subject;
 	
-	private String body;	
-	
+	private String body;		
 	
 	public String getFrom() {
 		return from;

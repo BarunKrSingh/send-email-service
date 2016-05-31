@@ -9,7 +9,6 @@ import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.mail.javamail.MimeMessagePreparator;
 import org.springframework.stereotype.Component;
-import org.springframework.ui.velocity.VelocityEngineUtils;
 
 import com.telefonica.domain.EmailContext;
 import com.telefonica.messaging.RabbitMQReceiver;
@@ -23,10 +22,8 @@ public class EmailSender {
 	private JavaMailSender javaMailSender;
 
 	public void sendEmail(final EmailContext emailContext) {
-
-		try {
-
-			//SimpleMailMessage mailMessage = new SimpleMailMessage();
+		
+		try {	
 			
 			MimeMessagePreparator preparator = new MimeMessagePreparator() {
 	            @Override
@@ -44,7 +41,7 @@ public class EmailSender {
 	         
 	         javaMailSender.send(preparator);
 			
-			 logger.debug("Successfully sent the email to the user:{} with information on password change:",emailContext.getTo());
+			 logger.debug("Successfully sent the email to the user:{} with information on password change:{}", emailContext.getTo());
 
 		} catch (Exception e) {
 			logger.error("Exception occured sending email to:{} due to :{}", emailContext.getTo(), e);

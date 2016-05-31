@@ -19,8 +19,7 @@ public class RabbitMQReceiver {
 
 	public void receiveMessage(String message) {
 		logger.debug("Polling the message: {} from the Queue:{} for extracting email details:", message,rabbitPropertyConfig.getQueueName());
-		parseXml.emailOperation(message);
-		
+		parseXml.emailOperation(message);		
 	}
 
 }

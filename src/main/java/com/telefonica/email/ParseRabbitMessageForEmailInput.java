@@ -57,8 +57,7 @@ public class ParseRabbitMessageForEmailInput {
 			 {
 				 logger.debug("Invalid Input from the Queue:");
 				 return null;
-			 }
-			 
+			 }			 
 		 }
 		 catch(Exception e)
 		 {
