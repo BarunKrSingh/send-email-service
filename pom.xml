@@ -27,28 +27,28 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-ws</artifactId>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>wsdl4j</groupId>
 			<artifactId>wsdl4j</artifactId>
-		</dependency>		
+		</dependency>
 		<!-- end::springws[] -->
-		
+
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-		
+
 		<!-- RabbitMQ Dependency -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-amqp</artifactId>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-security</artifactId>			
+			<artifactId>spring-boot-starter-security</artifactId>
 		</dependency>
 
 		<!-- EhCache dependency -->
@@ -60,9 +60,9 @@
 		<!-- Support for Ehcache and others -->
 		<dependency>
 			<groupId>org.springframework</groupId>
-			<artifactId>spring-context-support</artifactId>			
+			<artifactId>spring-context-support</artifactId>
 		</dependency>
-		
+
 		<!-- Microsoft sql server dependency -->
 		<dependency>
 			<groupId>com.microsoft.sqlserver</groupId>
@@ -72,17 +72,18 @@
 		
 		<!-- http://mvnrepository.com/artifact/javax.mail/mail -->
 		<dependency>
-   			<groupId>javax.mail</groupId>
-    		<artifactId>mail</artifactId>
-  			<version>1.4</version>
+			<groupId>javax.mail</groupId>
+			<artifactId>mail</artifactId>
+			<version>1.4</version>
 		</dependency>
-		
-		<!-- To build a war file that is both executable and deployable into an external container --> 
+
+		<!-- To build a war file that is both executable and deployable into an 
+			external container -->
 		<dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-tomcat</artifactId>
-            <scope>provided</scope>
-        </dependency>	
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-tomcat</artifactId>
+			<scope>provided</scope>
+		</dependency>
 	</dependencies>
 
 	<build>
@@ -90,7 +91,7 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
-			</plugin>			
+			</plugin>
 		</plugins>
 	</build>
 

@@ -1,4 +1,4 @@
-package com.telefonica.config;
+package com.telefonica.propertyconfig;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
@@ -6,39 +6,23 @@ import org.springframework.context.annotation.Configuration;
 
 @Configuration
 @EnableConfigurationProperties
-@ConfigurationProperties(prefix = "mail")
-public class MailPropertyConfig {
+@ConfigurationProperties(prefix = "rabbit")
+public class RabbitPropertyConfig {
 
-	private String protocol;
-
-	private String host;
-
+	private String hostname;
 	private int port;
-
-	private boolean auth;
-
-	private boolean starttls;	
-
 	private String username;
-
 	private String password;
+	private String queueName;
+	private String exchangeName;
 
-	public String getProtocol() {
-		return protocol;
+	public RabbitPropertyConfig() {
 	}
 
-	public void setProtocol(String protocol) {
-		this.protocol = protocol;
+	public String getHostname() {
+		return hostname;
 	}
-
-	public String getHost() {
-		return host;
-	}
-
-	public void setHost(String host) {
-		this.host = host;
-	}
-
+	
 	public int getPort() {
 		return port;
 	}
@@ -47,22 +31,10 @@ public class MailPropertyConfig {
 		this.port = port;
 	}
 
-	public boolean isAuth() {
-		return auth;
+	public void setHostname(String hostname) {
+		this.hostname = hostname;
 	}
 
-	public void setAuth(boolean auth) {
-		this.auth = auth;
-	}
-
-	public boolean isStarttls() {
-		return starttls;
-	}
-
-	public void setStarttls(boolean starttls) {
-		this.starttls = starttls;
-	}
-	
 	public String getUsername() {
 		return username;
 	}
@@ -77,6 +49,22 @@ public class MailPropertyConfig {
 
 	public void setPassword(String password) {
 		this.password = password;
+	}
+
+	public String getQueueName() {
+		return queueName;
+	}
+
+	public void setQueueName(String queueName) {
+		this.queueName = queueName;
+	}
+
+	public String getExchangeName() {
+		return exchangeName;
+	}
+
+	public void setExchangeName(String exchangeName) {
+		this.exchangeName = exchangeName;
 	}
 
 }
