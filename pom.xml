@@ -6,7 +6,7 @@
 	<groupId>com.telefonica</groupId>
 	<artifactId>send-email-service</artifactId>
 	<version>0.1.0</version>
-	<packaging>war</packaging>
+	<packaging>jar</packaging>
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>
@@ -87,6 +87,7 @@
 	</dependencies>
 
 	<build>
+	<finalName>send-email-service</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
