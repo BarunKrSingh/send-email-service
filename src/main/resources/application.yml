@@ -2,10 +2,10 @@ server:
   port: 9095
   
 rabbit:
-  hostname: 10.64.161.34
+  hostname: localhost
   port: 5672
-  username: arpv
-  password: arpv
+  username: guest
+  password: guest
   queueName: Inbox-Queue
   exchangeName: Telefonica-SendEmail
    
