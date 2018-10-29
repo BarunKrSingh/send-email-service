@@ -1,4 +1,4 @@
-package com.telefonica.email;
+package com.telefonica.util;
 
 import javax.mail.internet.MimeMessage;
 
@@ -11,12 +11,12 @@ import org.springframework.mail.javamail.MimeMessagePreparator;
 import org.springframework.stereotype.Component;
 
 import com.telefonica.domain.EmailContext;
-import com.telefonica.messaging.RabbitMQReceiver;
+import com.telefonica.messaging.Receiver;
 
 @Component
 public class EmailSender {
 
-	private static final Logger logger = LoggerFactory.getLogger(RabbitMQReceiver.class);
+	private static final Logger logger = LoggerFactory.getLogger(Receiver.class);
 
 	@Autowired
 	private JavaMailSender javaMailSender;
@@ -30,11 +30,9 @@ public class EmailSender {
 	            public void prepare(MimeMessage mimeMessage) throws Exception {
 	               MimeMessageHelper message = new MimeMessageHelper(mimeMessage);
 	               
-	               //message.setTo(emailContext.getTo());
-	               message.setTo("barun.singh@emc.com");
+	               message.setTo(emailContext.getTo());	              
 	               message.setFrom(emailContext.getFrom());
 	               message.setSubject(emailContext.getSubject());
-
 	               message.setText(emailContext.getBody(), true);
 	            }
 	         };			

@@ -2,20 +2,16 @@ server:
   port: 9095
   
 rabbit:
-  hostname: localhost
-  port: 5672
+  hostname: 192.168.99.100
+  port: 32771
   username: guest
   password: guest
   queueName: Inbox-Queue
   exchangeName: Telefonica-SendEmail
    
 mail:  
-  username: barun.singh@emc.com
-  password:   
-  host: 10.64.160.96
+  username: barunkumar.singh321@gmail.com
+  password: cts2012##$
+  host: smtp.gmail.com
   protocol: smtp
-  port: 25
-  auth: false
-  starttls: true  
-  
-  
+  port: 587

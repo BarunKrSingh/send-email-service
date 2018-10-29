@@ -7,7 +7,7 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 @EnableConfigurationProperties
 @ConfigurationProperties(prefix = "rabbit")
-public class RabbitPropertyConfig {
+public class MessageBrokerPropertyConfig {
 
 	private String hostname;
 	private int port;
@@ -16,7 +16,7 @@ public class RabbitPropertyConfig {
 	private String queueName;
 	private String exchangeName;
 
-	public RabbitPropertyConfig() {
+	public MessageBrokerPropertyConfig() {
 	}
 
 	public String getHostname() {

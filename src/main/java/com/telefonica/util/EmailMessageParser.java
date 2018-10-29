@@ -1,4 +1,4 @@
-package com.telefonica.email;
+package com.telefonica.util;
 import java.io.StringReader;
 
 import javax.xml.parsers.DocumentBuilder;
@@ -13,21 +13,19 @@ import org.w3c.dom.NodeList;
 import org.xml.sax.InputSource;
 
 import com.telefonica.domain.EmailContext;
-import com.telefonica.messaging.RabbitMQReceiver;
 
 
 @Configuration
-public class ParseRabbitMessageForEmailInput {	
+public class EmailMessageParser {	
 	
-	private static final Logger logger= LoggerFactory.getLogger(RabbitMQReceiver.class);
+	private static final Logger logger= LoggerFactory.getLogger(EmailMessageParser.class);
 	
 	@Autowired
 	private EmailSender emailSender;
 
-	private DocumentBuilderFactory factory=DocumentBuilderFactory.newInstance();
+	private DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
 	
-	private EmailContext getEmailDetailsfromXML(String message)
-	{	
+	private EmailContext getEmailDetailsfromXML(String message)	{	
 		 DocumentBuilder builder;
 		 EmailContext attributes=new EmailContext();
 		 
@@ -37,8 +35,7 @@ public class ParseRabbitMessageForEmailInput {
 			 Document document= builder.parse(new InputSource(new StringReader(message)));
 			 NodeList msg= document.getElementsByTagName("msg");
 			 
-			 if(msg.getLength()>0)
-			 {
+			 if(msg.getLength() > 0) {
 				 String sender=document.getElementsByTagName("se").item(0).getTextContent();
 				 attributes.setFrom(sender);
 				 
@@ -53,18 +50,15 @@ public class ParseRabbitMessageForEmailInput {
 				 
 				 logger.debug("Succesfully extracted the email content from message taken from RabbitMQ for sending email:");
 			 }
-			 else				 
-			 {
+			 else {
 				 logger.debug("Invalid Input from the Queue:");
 				 return null;
 			 }			 
 		 }
-		 catch(Exception e)
-		 {
+		 catch(Exception e) {
 			 logger.error("Exception occured extracting the email content details from the rabbit message due to :{}", e);
 		 }
-		 return attributes;
-    
+		 return attributes;    
 	}
 	
 	public void emailOperation( String stringifiedXML)	{

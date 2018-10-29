@@ -4,18 +4,18 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import com.telefonica.email.ParseRabbitMessageForEmailInput;
-import com.telefonica.propertyconfig.RabbitPropertyConfig;
+import com.telefonica.propertyconfig.MessageBrokerPropertyConfig;
+import com.telefonica.util.EmailMessageParser;
 
-public class RabbitMQReceiver {
+public class Receiver {
 	
-	private static final Logger logger= LoggerFactory.getLogger(RabbitMQReceiver.class);
-	
-	@Autowired
-	private RabbitPropertyConfig rabbitPropertyConfig;
+	private static final Logger logger= LoggerFactory.getLogger(Receiver.class);
 	
 	@Autowired
-	private ParseRabbitMessageForEmailInput parseXml;
+	private MessageBrokerPropertyConfig rabbitPropertyConfig;
+	
+	@Autowired
+	private EmailMessageParser parseXml;
 
 	public void receiveMessage(String message) {
 				

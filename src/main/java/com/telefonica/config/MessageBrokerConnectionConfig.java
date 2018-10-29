@@ -13,14 +13,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-import com.telefonica.messaging.RabbitMQReceiver;
-import com.telefonica.propertyconfig.RabbitPropertyConfig;
+import com.telefonica.messaging.Receiver;
+import com.telefonica.propertyconfig.MessageBrokerPropertyConfig;
 
 @Configuration
-public class RabbitConfig {	
+public class MessageBrokerConnectionConfig {	
 	
 	@Autowired
-	private RabbitPropertyConfig rabbitPropertyConfig;
+	private MessageBrokerPropertyConfig rabbitPropertyConfig;
 	
 	@Bean
     public ConnectionFactory connectionFactory() {
@@ -57,19 +57,18 @@ public class RabbitConfig {
 		SimpleMessageListenerContainer container = new SimpleMessageListenerContainer();		
 		container.setConnectionFactory(connectionFactory);
 		container.setQueueNames(rabbitPropertyConfig.getQueueName());
-		container.setMessageListener(listenerAdapter);
+		container.setMessageListener(listenerAdapter);		
 		return container;
 	}
 
     @Bean
-    RabbitMQReceiver receiver() {
-        return new RabbitMQReceiver();
+    Receiver receiver() {
+        return new Receiver();
     }
 
 	@Bean
-	MessageListenerAdapter listenerAdapter(RabbitMQReceiver receiver) {
+	MessageListenerAdapter listenerAdapter(Receiver receiver) {
 		return new MessageListenerAdapter(receiver, "receiveMessage");
 	}
-	
 
 }
