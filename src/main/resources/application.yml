@@ -2,12 +2,12 @@ server:
   port: 9095
   
 rabbit:
-  hostname: 192.168.99.100
+  hostname: 
   port: 5672
   username: guest
   password: guest
   queueName: Inbox-Queue
-  exchangeName: Telefonica-SendEmail
+  exchangeName: 
    
 mail:  
   username: barunkumar.singh321@gmail.com
