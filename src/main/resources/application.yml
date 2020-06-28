@@ -11,7 +11,7 @@ rabbit:
    
 mail:  
   username: barunkumar.singh321@gmail.com
-  password: cts2012##$
+  password: 
   host: smtp.gmail.com
   protocol: smtp
   port: 587
